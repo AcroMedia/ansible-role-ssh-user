@@ -1,0 +1,15 @@
+galaxy_info:
+  author: Acro Media Inc.
+  description: Add SSH user(s) to a linux server
+  company: Acro Media Inc.
+  license: GPLv3
+  min_ansible_version: 2.9
+  platforms:
+   - name: EL
+     versions:
+     - all
+   - name: Debian
+     versions:
+     - all
+  galaxy_tags: []
+dependencies: []

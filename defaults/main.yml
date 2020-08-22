@@ -1,0 +1,11 @@
+---
+ssh_user_logins: []
+# - username: johndoe
+#   state: present
+#   key: "ssh-rsa AAAAB3Nz........dbE2VAEhjBqmpusSR3ZiFhr john doe from home"
+#   shell: /bin/bash
+#   groups:
+#     - adm
+#     - sudo
+
+ssh_user_default_shell: /bin/bash
