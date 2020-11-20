@@ -3,14 +3,6 @@
   hosts: all
   become: true
 
-  vars:
-    ssh_user_logins:
-      - username: automator1
-        state: present
-        key: "ssh-rsa AAAAB3Nz...truncated...xxxxxxxxxxxx key comment"
-        groups:
-          - sudo
-
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=true cache_valid_time=600

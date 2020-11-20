@@ -1,0 +1,30 @@
+---
+- name: Check mysql backup is configured
+  hosts: all
+  become: yes
+  vars:
+    ssh_user_logins:
+      - username: automator1
+        state: present
+        key: "ssh-rsa AAAAB3Nz...truncated...xxxxxxxxxxxx key comment"
+        groups:
+          - sudo
+    ssh_user_default_shell: /bin/bash
+  tasks:
+    - name: Add system users
+      user:
+        name: "{{ item.username }}"
+        state: "{{ item.state | default('present') }}"
+        groups: "{{ (item.groups | default([]))  | join(',') }}"
+        append: yes
+        shell: "{{ item.shell | default(ssh_user_default_shell) }}"
+      with_items: "{{ ssh_user_logins }}"
+
+    - name: Add SSH public key(s) to user account(s)
+      authorized_key:
+        key: "{{ item.key }}"
+        user: "{{ item.username }}"
+      when: "item.state == 'present'"
+      with_items: "{{ ssh_user_logins }}"
+      ignore_errors: true
+
