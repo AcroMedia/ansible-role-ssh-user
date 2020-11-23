@@ -1,5 +1,7 @@
 # ansible-role-ssh-user
 
+![.github/workflows/molecule.yml](https://github.com/AcroMedia/ansible-role-ssh-user/workflows/.github/workflows/molecule.yml/badge.svg)
+
 Control SSH user logins and configure users' public SSH keys on a linux machine.
 
 This role is a convenient wrapper around Ansible's `user` and `authorized_key` modules.
