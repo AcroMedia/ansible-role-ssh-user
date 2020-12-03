@@ -1,0 +1,9 @@
+---
+- name: Verify user creation
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Check if the user 'automator1' is created
+      shell : cat /etc/passwd | grep 'automator1'
+

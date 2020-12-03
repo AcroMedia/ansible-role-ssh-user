@@ -1,0 +1,9 @@
+- name: Update Cache
+  hosts: all
+  connection: local
+  become: no
+  gather_facts: yes
+  tasks:
+    - name: Update apt cache.
+      apt: update_cache=true cache_valid_time=600
+      when: ansible_os_family == 'Debian'

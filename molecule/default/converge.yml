@@ -1,0 +1,14 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+
+  vars:
+    ssh_user_logins:
+      - username: automator1
+        state: present
+        key: "ssh-rsa AAAAB3Nz...truncated...xxxxxxxxxxxx key comment"
+    ssh_user_default_shell: /bin/bash
+
+  roles:
+    - role: ansible-role-ssh-user
